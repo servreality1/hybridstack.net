@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HybridStack | Mobile Cross Platform Game Development Excellence</title>
+    <meta name="description" content="HybridStack provides professional mobile cross platform game development services. We build high-performance games for iOS and Android.">
+    <meta name="keywords" content="mobile cross platform game development, game studio, unity development, unreal engine mobile, hybridstack">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎮</text></svg>">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="HybridStack | Mobile Cross Platform Game Development">
+    <meta property="og:description" content="Professional game development services for mobile platforms.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://hybridstack.net">
+
+    <!-- Microdata -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "HybridStack",
+        "url": "https://hybridstack.net",
+        "logo": "https://hybridstack.net/logo.png",
+        "description": "Professional mobile cross platform game development studio.",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "London",
+            "addressCountry": "UK"
+        }
+    }
+    </script>
+
+    <style>
+        :root {
+            --hybrid-dark: #5c6f68;
+            --hybrid-muted: #8aa39b;
+            --hybrid-accent-1: #95d9c3;
+            --hybrid-accent-2: #a4f9c8;
+            --hybrid-accent-3: #a7fff6;
+            --white: #ffffff;
+            --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--hybrid-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Nav */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--hybrid-accent-1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--hybrid-muted);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links a:hover {
+            color: var(--hybrid-muted);
+        }
+
+        .btn-cta {
+            background: var(--hybrid-dark);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(92, 111, 104, 0.2);
+        }
+
+        .btn-cta:hover {
+            background: var(--hybrid-muted);
+            transform: translateY(-2px);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 180px 0 100px;
+            background: linear-gradient(135deg, rgba(167, 255, 246, 0.1), rgba(149, 217, 195, 0.1));
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 56px;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--hybrid-dark), var(--hybrid-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--hybrid-muted);
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+
+        /* SEO Content Section */
+        .seo-content {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .seo-content h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .seo-text {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--hybrid-muted);
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .seo-text p {
+            margin-bottom: 25px;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 0;
+            background: #f9fdfc;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid var(--hybrid-accent-1);
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        /* About */
+        .about {
+            padding: 100px 0;
+        }
+
+        .about-flex {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .about-img {
+            flex: 1;
+        }
+
+        .about-img img {
+            width: 100%;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .about-content h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        /* Reviews */
+        .reviews {
+            padding: 100px 0;
+            background: var(--hybrid-dark);
+            color: var(--white);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .review-card p {
+            font-style: italic;
+            margin-bottom: 20px;
+            color: var(--hybrid-accent-2);
+        }
+
+        .review-author {
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 40px;
+            background: #f4f7f6;
+            border-top: 1px solid var(--hybrid-accent-1);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-logo {
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .footer-links h4 {
+            margin-bottom: 25px;
+            font-size: 18px;
+        }
+
+        .footer-links li {
+            margin-bottom: 15px;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 40px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            color: var(--hybrid-muted);
+            font-size: 14px;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 40px;
+            }
+            .about-flex {
+                flex-direction: column;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">HYBRID<span>STACK</span></a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="#" class="btn-cta">Get Started</a></li>
+                </ul>
+                <div class="mobile-menu-btn">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Next-Gen <span>Gaming Experiences</span></h1>
+            <p>We specialize in high-performance mobile cross platform game development, bringing your vision to life on iOS, Android, and beyond.</p>
+            <a href="#services" class="btn-cta">Explore Services</a>
+        </div>
+    </section>
+
+    <section class="seo-content">
+        <div class="container">
+            <h2>The Evolution of Mobile Cross Platform Game Development</h2>
+            <div class="seo-text">
+                <p>
+                    In the modern gaming landscape, accessibility is the ultimate currency. Players no longer want to be tethered to a single ecosystem or device. This shift has placed <strong>mobile cross platform game development</strong> (<a href="https://servreality.com/cross-platform-game-development/">https://servreality.com/cross-platform-game-development/</a>) at the very heart of the industry's growth strategy. At HybridStack, we understand that building a game that feels native on an iPhone while performing flawlessly on a mid-range Android tablet is not just a technical challenge—it's an art form.
+                </p>
+                <p>
+                    Our approach to <strong>mobile cross platform game development</strong> leverages cutting-edge engines like Unity and Unreal Engine 5, combined with our proprietary optimization pipelines. By utilizing a single codebase to target multiple platforms, we significantly reduce time-to-market and development costs for our clients. This efficiency allows us to focus more resources on what truly matters: gameplay mechanics, narrative depth, and visual fidelity.
+                </p>
+                <p>
+                    The technical hurdles of <strong>mobile cross platform game development</strong> are numerous. From handling varying screen aspect ratios and touch input latency to managing memory constraints across different hardware tiers, our team of veteran developers has seen it all. We don't just "port" games; we architect them from the ground up to be platform-agnostic. This ensures that whether a player is on a flagship device or an older smartphone, the core experience remains consistent and engaging.
+                </p>
+                <p>
+                    Furthermore, the social aspect of modern gaming demands cross-play and cross-progression. A successful <strong>mobile cross platform game development</strong> project must include robust backend systems that sync player data in real-time. We integrate advanced cloud solutions to ensure that a player can start a quest on their commute and finish it on their tablet at home without losing a single experience point.
+                </p>
+                <p>
+                    As we look toward the future, the boundaries between mobile, console, and PC gaming continue to blur. HybridStack is committed to staying at the forefront of this revolution. By choosing us for your <strong>mobile cross platform game development</strong> needs, you're not just hiring a studio; you're partnering with visionaries who believe that great games should be available to everyone, everywhere.
+                </p>
+                <p>
+                    Our commitment to excellence in <strong>mobile cross platform game development</strong> drives us to explore new frontiers in mobile graphics and networking. We believe that every pixel counts and every millisecond of latency matters. Join us as we redefine what is possible on mobile devices.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Expertise</h2>
+                <p>Comprehensive solutions for every stage of your game's lifecycle.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Full-Cycle Development</h3>
+                    <p>From concept to launch, we handle everything including design, coding, and QA for your next big hit.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Performance Optimization</h3>
+                    <p>We ensure your game runs at 60FPS even on lower-end mobile devices through deep technical audits.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Multiplayer Integration</h3>
+                    <p>Real-time networking and social features for global player communities across all mobile platforms.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-flex">
+                <div class="about-img">
+                    <img src="https://picsum.photos/seed/hybridstack/800/600" alt="HybridStack Studio" referrerPolicy="no-referrer">
+                </div>
+                <div class="about-content">
+                    <h2>About HybridStack</h2>
+                    <p>Founded in 2018, HybridStack has grown from a small team of enthusiasts to a premier studio specializing in <strong>mobile cross platform game development</strong>. Our mission is to break down the barriers between platforms.</p>
+                    <p>We believe that technology should serve creativity, not limit it. Our team consists of industry veterans who have worked on AAA titles and indie hits alike, bringing a wealth of experience to every project we touch.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="container">
+            <div class="section-title">
+                <h2 style="color: white;">What Our Clients Say</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <p>"HybridStack transformed our vision into a top-charting mobile game. Their expertise in cross-platform tech is unmatched."</p>
+                    <div class="review-author">Sarah Jenkins, CEO at PixelPlay</div>
+                </div>
+                <div class="review-card">
+                    <p>"The performance optimization they achieved on Android was mind-blowing. Our game has never felt smoother."</p>
+                    <div class="review-author">Marcus Thorne, Lead Designer at Void Studios</div>
+                </div>
+                <div class="review-card">
+                    <p>"Professional, creative, and technically brilliant. They are our go-to partner for all mobile projects."</p>
+                    <div class="review-author">Elena Rodriguez, Producer at Global Games</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">HYBRIDSTACK</div>
+                    <p style="color: var(--hybrid-muted); max-width: 300px;">Leading the future of mobile cross platform game development. We build immersive experiences that run seamlessly across all devices.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#">Unity Development</a></li>
+                        <li><a href="#">Unreal Engine</a></li>
+                        <li><a href="#">Multiplayer Systems</a></li>
+                        <li><a href="#">Game Design</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 HybridStack. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
